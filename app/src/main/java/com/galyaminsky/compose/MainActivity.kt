@@ -1,6 +1,5 @@
 package com.galyaminsky.compose
 
-import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,7 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -28,7 +27,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-        ListItem(name = "Lisander", prof = "Developer")
+            Column {
+                ListItem(name = "Lisander", prof = "Developer")
+                ListItem(name = "Lisander", prof = "Developer")
+                ListItem(name = "Lisander", prof = "Developer")
+                ListItem(name = "Lisander", prof = "Developer")
+                ListItem(name = "Lisander", prof = "Developer")
+                ListItem(name = "Lisander", prof = "Developer")
+            }
         }
     }
 }
@@ -37,29 +43,29 @@ class MainActivity : ComponentActivity() {
 private fun ListItem(name: String, prof: String) {
     Card(
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxWidth()
             .padding(10.dp),
         shape = RoundedCornerShape(15.dp),
         elevation = CardDefaults.cardElevation(5.dp)
 
     ) {
-    Box {
-      Row (verticalAlignment = CenterVertically) {
-          Image(
-              painter = painterResource(id = R.drawable.ava),
-              contentDescription = "image",
-              contentScale = ContentScale.Crop,
-              modifier = Modifier
-                  .padding(10.dp)
-                  .size(64.dp)
-                  .clip(CircleShape)
-          )
-          Column {
-              Text(text = name)
-              Text(text = prof)
-          }
-      }
-    }
+        Box {
+            Row(verticalAlignment = CenterVertically) {
+                Image(
+                    painter = painterResource(id = R.drawable.ava),
+                    contentDescription = "image",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .padding(10.dp)
+                        .size(64.dp)
+                        .clip(CircleShape)
+                )
+                Column(modifier = Modifier.padding(start = 10.dp)) {
+                    Text(text = name)
+                    Text(text = prof)
+                }
+            }
+        }
     }
 }
 

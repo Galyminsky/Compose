@@ -43,26 +43,30 @@ class MainActivity : ComponentActivity() {
 private fun ListItem(name: String, prof: String) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(10.dp),
-        shape = RoundedCornerShape(15.dp),
+            .padding(10.dp)
+            .fillMaxWidth(),
+        shape = RoundedCornerShape(10.dp),
         elevation = CardDefaults.cardElevation(5.dp)
-
     ) {
         Box {
-            Row(verticalAlignment = CenterVertically) {
+            Row {
                 Image(
                     painter = painterResource(id = R.drawable.ava),
                     contentDescription = "image",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
-                        .padding(10.dp)
                         .size(64.dp)
+                        .padding(10.dp)
                         .clip(CircleShape)
                 )
-                Column(modifier = Modifier.padding(start = 10.dp)) {
-                    Text(text = name)
-                    Text(text = prof)
+                Column(
+                    modifier = Modifier
+                        .align(CenterVertically)
+                        .padding(start = 10.dp)
+
+                ) {
+                    Text(name)
+                    Text(prof)
                 }
             }
         }

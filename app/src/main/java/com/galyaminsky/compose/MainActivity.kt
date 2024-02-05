@@ -24,34 +24,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Row(
-                modifier = Modifier
-                    .background(Color.Green)
-                    .fillMaxWidth().fillMaxHeight(0.5f)
-            ) {
 
-                Column(
-                    modifier = Modifier
-                        .background(Color.Blue).fillMaxWidth(0.5f).fillMaxHeight(),
-                    verticalArrangement = Arrangement.SpaceAround,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(text = "Lisander")
-                    Text(text = "Galyaminsky")
-                    Text(text = "Yurik")
-                }
-
-                Column(
-                    modifier = Modifier
-                        .background(Color.Red).fillMaxSize(),
-                    verticalArrangement = Arrangement.SpaceAround,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(text = "Lisander")
-                    Text(text = "Galyaminsky")
-                    Text(text = "Yurik")
-                }
-            }
         }
     }
 }

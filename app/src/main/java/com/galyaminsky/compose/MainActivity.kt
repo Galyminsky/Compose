@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,20 +18,21 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            LazyColumn(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            LazyRow(
+                verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxSize(),
 
                 ) {
-                items(count = 100) {
+                itemsIndexed(
+                    listOf("item1", "item2", "item3", "item4", "item5", "item6", "item7")
+                ) {index, item ->
                     Text(
-                        text = "Item $it",
+                        text = item,
                         fontSize = 30.sp,
-                        modifier = Modifier.padding(10.dp)
+                        modifier = Modifier.padding(horizontal = 10.dp)
                     )
                 }
-
             }
         }
     }

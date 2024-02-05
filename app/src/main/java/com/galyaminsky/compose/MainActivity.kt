@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -25,13 +26,31 @@ class MainActivity : ComponentActivity() {
         setContent {
             Row(
                 modifier = Modifier
-                    .background(Color.Green).fillMaxSize(),
-                horizontalArrangement = Arrangement.SpaceAround,
-                verticalAlignment = Alignment.CenterVertically
+                    .background(Color.Green)
+                    .fillMaxWidth().fillMaxHeight(0.5f)
             ) {
-                Text(text = "Lisander")
-                Text(text = "Galyaminsky")
-                Text(text = "Yurik")
+
+                Column(
+                    modifier = Modifier
+                        .background(Color.Blue).fillMaxWidth(0.5f).fillMaxHeight(),
+                    verticalArrangement = Arrangement.SpaceAround,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(text = "Lisander")
+                    Text(text = "Galyaminsky")
+                    Text(text = "Yurik")
+                }
+
+                Column(
+                    modifier = Modifier
+                        .background(Color.Red).fillMaxSize(),
+                    verticalArrangement = Arrangement.SpaceAround,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(text = "Lisander")
+                    Text(text = "Galyaminsky")
+                    Text(text = "Yurik")
+                }
             }
         }
     }
